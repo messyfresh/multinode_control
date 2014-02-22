@@ -1,0 +1,47 @@
+<html> 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>LED Toggle Test</title>
+ 
+    <!-- jQuery and jQuery Mobile -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+<script>
+	var socket1 = io.connect('http://bbb.nixhome.com');
+		function ledBlue(value){
+			socket1.emit('ledBlue', value);
+			console.log('Blue is' + value);
+					}
+
+</script>
+
+</head>
+
+<body>
+
+<div data-role="page" id="page1">
+	<div data-theme="a" data-role="header">
+        	<h3>
+            	LED Toggle Test
+        	</h3>
+	</div>
+	<div data-role="content">
+	<div data-role="fieldcontain">
+            <label for="ledBlue"> </body> </html>
+                Blue LED
+            </label>
+            <select name="toggleswitch1" id="ledBlue" data-theme="b" 
+data-role="slider" onchange="ledBlue(value);">
+                <option value="off">Off</option>
+                <option value="on">On</option>
+            </select>
+        </div>
+	</div>
+</body>
+</html>
